@@ -252,6 +252,13 @@ set(HAVE_LIBROCKSDB 1)
 find_library(ZLIB REQUIRED)
 find_library(BZip2 REQUIRED)
 
+#option for LTTng
+option(HAVE_LTTNG "LTTng tracing is enabled" ON)
+if(${HAVE_LTTNG})
+  find_package(lttng-ust REQUIRED)
+  set(WITH_LTTNG ${LTTNG_FOUND})
+endif(${HAVE_LTTNG})
+
 # Now create a useable config.h
 configure_file(
   ${PROJECT_SOURCE_DIR}/src/include/config-h.in.cmake
