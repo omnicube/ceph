@@ -259,6 +259,15 @@ if(${HAVE_LTTNG})
   set(WITH_LTTNG ${LTTNG_FOUND})
 endif(${HAVE_LTTNG})
 
+#option for Babeltrace
+option(HAVE_BABELTRACE "Babeltrace libraries are enabled" ON)
+if(${HAVE_BABELTRACE})
+  find_package(babeltrace REQUIRED)
+  set(WITH_BABELTRACE ${BABELTRACE_FOUND})
+  set(HAVE_BABELTRACE_BABELTRACE_H ${BABELTRACE_FOUND})
+  set(HAVE_BABELTRACE_CTF_EVENTS_H ${BABELTRACE_FOUND})
+endif(${HAVE_BABELTRACE})
+
 # Now create a useable config.h
 configure_file(
   ${PROJECT_SOURCE_DIR}/src/include/config-h.in.cmake
