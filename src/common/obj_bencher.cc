@@ -796,7 +796,7 @@ int ObjBencher::seq_read_bench(int seconds_to_run, int num_objects, int concurre
   double bandwidth;
   bandwidth = ((double)data.finished)*((double)data.op_size)/(double)runtime;
   bandwidth = bandwidth/(1024*1024); // we want it in MB/sec
-
+  cout(0) << "test" << dendl;
   if (!formatter) {
     out(cout) << "Total time run:       " << runtime << std::endl
        << "Total reads made:     " << data.finished << std::endl
